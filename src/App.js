@@ -1,14 +1,14 @@
 import React from "react";
 import Header from "./components/Header";
-import Product from "./components/Product";
 import { Container } from "react-bootstrap";
+import HomeScreen from "./screens/HomeScreen";
 
 const App = () => {
   return (
     <>
       <Header />
       <Container>
-        <Product />
+        <HomeScreen />
       </Container>
     </>
   );
