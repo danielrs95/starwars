@@ -1,7 +1,13 @@
 import React from "react";
+import Header from "./components/Header";
 
 const App = () => {
-  return <div>Starwars</div>;
+  return (
+    <>
+      <Header />
+      Starwars
+    </>
+  );
 };
 
 export default App;
