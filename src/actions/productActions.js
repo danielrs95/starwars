@@ -9,18 +9,19 @@ export const listProducts = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
-    const { data } = await axios.get(`https://swapi.dev/api/people/1/`);
+    const { data } = await axios.get(`https://swapi.dev/api/people/`);
+    const { results } = data;
 
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
-      payload: data,
+      payload: results,
     });
   } catch (error) {
     dispatch({
       type: PRODUCT_LIST_FAIL,
       payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
+        error.response && error.response.results.message
+          ? error.response.results.message
           : error.message,
     });
   }
