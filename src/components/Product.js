@@ -12,11 +12,11 @@ const Product = ({ product }) => {
       <Card.Body>
         {/* <Link> */}
         <Card.Title as='h5'>
-          <strong className='txt-primary fs-1'>product.name</strong>
+          <strong className='txt-primary fs-1'>{product.name}</strong>
         </Card.Title>
         {/* </Link> */}
 
-        <Card.Text as='h3'>product.homeworld</Card.Text>
+        <Card.Text as='h3'>{product.homeworld}</Card.Text>
       </Card.Body>
     </Card>
   );
