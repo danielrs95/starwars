@@ -16,11 +16,19 @@ const HomeScreen = () => {
 
   return (
     <>
-      <Row>
-        <Col sm={12} md={6} lg={4}>
-          <Product />
-        </Col>
-      </Row>
+      {loading ? (
+        <h1>Cargando</h1>
+      ) : error ? (
+        <h3>Error</h3>
+      ) : (
+        <Row>
+          {products.map((product) => (
+            <Col sm={12} md={6} lg={4}>
+              <Product product={product} />
+            </Col>
+          ))}
+        </Row>
+      )}
     </>
   );
 };
