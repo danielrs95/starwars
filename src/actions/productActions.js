@@ -10,7 +10,9 @@ export const listProducts = () => async (dispatch) => {
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
     const { data } = await axios.get(`https://swapi.dev/api/people/`);
+    console.log(data);
     const { results } = data;
+    console.log(results);
 
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
