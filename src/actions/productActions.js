@@ -43,15 +43,24 @@ export const listProducts = (page = "") => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
 
-    // const data = await getAllStarwarsPeople();
+    let allPeople = await axios.get("https://swapi.dev/api/people/");
+    const count = allPeople.data.count;
+    const pages = Math.ceil((count - 1) / 10); // Redondeamos al entero mayor es decir 9
 
-    const data = await axios.get(`https://swapi.dev/api/people?page=${page}`);
-    let people = data.data.results;
+    const request = await axios.get(
+      `https://swapi.dev/api/people?page=${page}`
+    );
+    let people = request.data.results;
     console.log(people);
+
+    let data = {
+      people,
+      pages,
+    };
 
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
-      payload: people,
+      payload: data,
     });
   } catch (error) {
     dispatch({
