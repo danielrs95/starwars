@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
 import Paginate from "../components/Paginate";
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 import { listProducts } from "../actions/productActions";
 
 const HomeScreen = ({ match }) => {
@@ -20,9 +22,9 @@ const HomeScreen = ({ match }) => {
   return (
     <>
       {loading ? (
-        <h1>Cargando</h1>
+        <Loader />
       ) : error ? (
-        <h3>Error</h3>
+        <Message variant='danger'>{error}</Message>
       ) : (
         <>
           <Row>

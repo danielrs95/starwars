@@ -51,6 +51,14 @@ export const listProducts = (page = "") => async (dispatch) => {
       `https://swapi.dev/api/people?page=${page}`
     );
     let people = request.data.results;
+    // Populamos el nombre del planeta
+    for (let i = 0; i < people.length; i++) {
+      let planets = "";
+      // Hacemos la petición para popular people.homeworld
+      planets = await axios(people[i].homeworld);
+      people[i].homeworld = planets.data.name;
+    }
+
     console.log(people);
 
     let data = {
