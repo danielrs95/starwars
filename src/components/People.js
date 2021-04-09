@@ -10,7 +10,7 @@ const People = ({ peopleInstance }) => {
       {/* </Link> */}
 
       <Card.Body>
-        <Link to={`/people/${peopleInstance.url}`}>
+        <Link to={`/people/${peopleInstance.id}`}>
           <Card.Title as='h5'>
             <strong className='txt-primary fs-1'>{peopleInstance.name}</strong>
           </Card.Title>
