@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
-import Product from "../components/Product";
+import People from "../components/People";
 import Paginate from "../components/Paginate";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
-import { listProducts } from "../actions/productActions";
+import { listPeople } from "../actions/peopleActions";
 
 const HomeScreen = ({ match }) => {
   const dispatch = useDispatch();
 
-  const productList = useSelector((state) => state.productList);
-  const { loading, error, products, pages } = productList;
+  const peopleList = useSelector((state) => state.peopleList);
+  const { loading, error, people, pages } = peopleList;
 
   const page = match.params.page || 1;
 
   useEffect(() => {
-    dispatch(listProducts(page));
+    dispatch(listPeople(page));
   }, [dispatch, page]);
 
   return (
@@ -28,9 +28,12 @@ const HomeScreen = ({ match }) => {
       ) : (
         <>
           <Row>
-            {products.map((product) => (
+            {people.map((peopleInstance) => (
               <Col sm={12} md={6} lg={4}>
-                <Product key={product.url} product={product} />
+                <People
+                  key={peopleInstance.url}
+                  peopleInstance={peopleInstance}
+                />
               </Col>
             ))}
           </Row>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card } from "react-bootstrap";
 
-const Product = ({ product }) => {
+const People = ({ peopleInstance }) => {
   return (
     <Card className='my-3 p-3 rounded'>
       {/* <Link> */}
@@ -12,14 +12,14 @@ const Product = ({ product }) => {
       <Card.Body>
         {/* <Link> */}
         <Card.Title as='h5'>
-          <strong className='txt-primary fs-1'>{product.name}</strong>
+          <strong className='txt-primary fs-1'>{peopleInstance.name}</strong>
         </Card.Title>
         {/* </Link> */}
 
-        <Card.Text as='h3'>{product.homeworld}</Card.Text>
+        <Card.Text as='h3'>{peopleInstance.homeworld}</Card.Text>
       </Card.Body>
     </Card>
   );
 };
 
-export default Product;
+export default People;

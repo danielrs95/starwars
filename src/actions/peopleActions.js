@@ -1,9 +1,9 @@
 import axios from "axios";
 import {
-  PRODUCT_LIST_FAIL,
-  PRODUCT_LIST_REQUEST,
-  PRODUCT_LIST_SUCCESS,
-} from "../constants/productConstants";
+  PEOPLE_LIST_FAIL,
+  PEOPLE_LIST_REQUEST,
+  PEOPLE_LIST_SUCCESS,
+} from "../constants/peopleConstants";
 
 async function getAllStarwarsPeople() {
   let response = await axios.get("https://swapi.dev/api/people/");
@@ -39,9 +39,9 @@ async function getAllStarwarsPeople() {
   return data;
 }
 
-export const listProducts = (page = "") => async (dispatch) => {
+export const listPeople = (page = "") => async (dispatch) => {
   try {
-    dispatch({ type: PRODUCT_LIST_REQUEST });
+    dispatch({ type: PEOPLE_LIST_REQUEST });
 
     let allPeople = await axios.get("https://swapi.dev/api/people/");
     const count = allPeople.data.count;
@@ -67,12 +67,12 @@ export const listProducts = (page = "") => async (dispatch) => {
     };
 
     dispatch({
-      type: PRODUCT_LIST_SUCCESS,
+      type: PEOPLE_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: PRODUCT_LIST_FAIL,
+      type: PEOPLE_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
