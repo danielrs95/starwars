@@ -10,11 +10,11 @@ const People = ({ peopleInstance }) => {
       {/* </Link> */}
 
       <Card.Body>
-        {/* <Link> */}
-        <Card.Title as='h5'>
-          <strong className='txt-primary fs-1'>{peopleInstance.name}</strong>
-        </Card.Title>
-        {/* </Link> */}
+        <Link to={`/people/${peopleInstance.url}`}>
+          <Card.Title as='h5'>
+            <strong className='txt-primary fs-1'>{peopleInstance.name}</strong>
+          </Card.Title>
+        </Link>
 
         <Card.Text as='h3'>{peopleInstance.homeworld}</Card.Text>
       </Card.Body>

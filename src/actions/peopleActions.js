@@ -57,6 +57,8 @@ export const listPeople = (page = "") => async (dispatch) => {
       // Hacemos la petición para popular people.homeworld
       planets = await axios(people[i].homeworld);
       people[i].homeworld = planets.data.name;
+      // Agregamos el ID al array de people, con un regex obetenmos solo el digito
+      people.forEach((item) => (item.id = item.url.match(/\d/g).join("")));
     }
 
     console.log(people);

@@ -31,7 +31,7 @@ const HomeScreen = ({ match }) => {
             {people.map((peopleInstance) => (
               <Col sm={12} md={6} lg={4}>
                 <People
-                  key={peopleInstance.url}
+                  key={peopleInstance.id}
                   peopleInstance={peopleInstance}
                 />
               </Col>
