@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ListGroup, ListGroupItem, Col } from "react-bootstrap";
+import { ListGroup, ListGroupItem, Col, Card } from "react-bootstrap";
 import { getPeopleDetails } from "../actions/peopleActions";
 import Loader from "../components/Loader";
 import Message from "../components/Message";
@@ -23,10 +23,10 @@ const PeopleScreen = ({ match }) => {
       ) : error ? (
         <Message variant='danter'>{error}</Message>
       ) : (
-        <Col className='mt-2'>
-          <ListGroup>
+        <Card className='mt-5' border='primary'>
+          <ListGroup variant='flush'>
             <ListGroup.Item>
-              <h2>{peopleInstance.name}</h2>
+              <h2 className='text-primary'>{peopleInstance.name}</h2>
             </ListGroup.Item>
             <ListGroup.Item>
               <ul
@@ -55,7 +55,7 @@ const PeopleScreen = ({ match }) => {
               <></>
             ) : (
               <ListGroup.Item>
-                <h3>Films</h3>
+                <h3 className='text-primary'>Films</h3>
                 <ul className='people_details_list'>
                   {peopleInstance.films.map((film) => (
                     <li>{film}</li>
@@ -68,7 +68,7 @@ const PeopleScreen = ({ match }) => {
               <></>
             ) : (
               <ListGroup.Item>
-                <h3>Vehicles</h3>
+                <h3 className='text-primary'>Vehicles</h3>
                 <ul className='people_details_list'>
                   {peopleInstance.vehicles.map((vehicle) => (
                     <li>{vehicle}</li>
@@ -81,7 +81,7 @@ const PeopleScreen = ({ match }) => {
               <></>
             ) : (
               <ListGroup.Item>
-                <h3>Starships</h3>
+                <h3 className='text-primary'>Starships</h3>
                 <ul className='people_details_list'>
                   {peopleInstance.starships.map((starship) => (
                     <li>{starship}</li>
@@ -90,7 +90,7 @@ const PeopleScreen = ({ match }) => {
               </ListGroup.Item>
             )}
           </ListGroup>
-        </Col>
+        </Card>
       )}
     </>
   );
