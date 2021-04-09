@@ -1,7 +1,7 @@
 import {
-  PEOPLE_LIST_DETAIL_FAIL,
-  PEOPLE_LIST_DETAIL_REQUEST,
-  PEOPLE_LIST_DETAIL_SUCCESS,
+  PEOPLE_DETAILS_FAIL,
+  PEOPLE_DETAILS_REQUEST,
+  PEOPLE_DETAILS_SUCCESS,
   PEOPLE_LIST_FAIL,
   PEOPLE_LIST_REQUEST,
   PEOPLE_LIST_SUCCESS,
@@ -28,21 +28,21 @@ export const peopleListReducer = (state = { people: [] }, action) => {
   }
 };
 
-export const peopleListDetailsReducer = (
-  state = { peopleDetails: {} },
+export const peopleDetailsReducer = (
+  state = { peopleInstance: {} },
   action
 ) => {
   switch (action.type) {
-    case PEOPLE_LIST_DETAIL_REQUEST:
-      return { loading: true, peopleDetails: {} };
+    case PEOPLE_DETAILS_REQUEST:
+      return { loading: true, peopleInstance: {} };
 
-    case PEOPLE_LIST_DETAIL_SUCCESS:
+    case PEOPLE_DETAILS_SUCCESS:
       return {
         loading: false,
-        peopleDetails: action.payload,
+        peopleInstance: action.payload,
       };
 
-    case PEOPLE_LIST_DETAIL_FAIL:
+    case PEOPLE_DETAILS_FAIL:
       return { loading: false, error: action.payload };
 
     default:

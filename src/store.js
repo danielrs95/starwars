@@ -2,13 +2,13 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import {
-  peopleListDetailsReducer,
+  peopleDetailsReducer,
   peopleListReducer,
 } from "./reducers/peopleReducers";
 
 const reducer = combineReducers({
   peopleList: peopleListReducer,
-  peopleListDetails: peopleListDetailsReducer,
+  peopleDetails: peopleDetailsReducer,
 });
 
 const initialState = {};
