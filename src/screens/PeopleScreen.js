@@ -50,14 +50,19 @@ const PeopleScreen = ({ match }) => {
                 </li>
               </ul>
             </ListGroup.Item>
-            <ListGroup.Item>
-              <h3>Films</h3>
-              <ul className='people_details_list'>
-                {peopleInstance.films.map((film) => (
-                  <li>{film}</li>
-                ))}
-              </ul>
-            </ListGroup.Item>
+
+            {peopleInstance.films.length === 0 ? (
+              <></>
+            ) : (
+              <ListGroup.Item>
+                <h3>Films</h3>
+                <ul className='people_details_list'>
+                  {peopleInstance.films.map((film) => (
+                    <li>{film}</li>
+                  ))}
+                </ul>
+              </ListGroup.Item>
+            )}
 
             {peopleInstance.vehicles.length === 0 ? (
               <></>

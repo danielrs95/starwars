@@ -29,12 +29,15 @@ export const peopleListReducer = (state = { people: [] }, action) => {
 };
 
 export const peopleDetailsReducer = (
-  state = { peopleInstance: {} },
+  state = { peopleInstance: { films: [], vehicles: [], starships: [] } },
   action
 ) => {
   switch (action.type) {
     case PEOPLE_DETAILS_REQUEST:
-      return { loading: true, peopleInstance: {} };
+      return {
+        loading: true,
+        peopleInstance: {},
+      };
 
     case PEOPLE_DETAILS_SUCCESS:
       return {
